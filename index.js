@@ -7,7 +7,101 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
+class Habitant {
+  constructor(species, name, gender, phrase, friends = [], legs, hands) {
+    this.species = species;
+    this.legs = legs;
+    this.hands = hands;
+    this.name = name;
+    this.gender = gender;
+    this.phrase = phrase;
+    this.friends = friends;
+    //this.addFriends(friends);
+  }
 
+  addFriends(newFriend) {
+    this.friends.pop(newFriend);
+  }
+
+  listFriends() {
+    return this.friends.length
+      ? this.friends.map((friend) => friend).join(", ")
+      : "I am loner";
+  }
+
+  sayPhrase() {
+    return this.phrase;
+  }
+
+  toString() {
+    return `Hi! I am <strong>${this.species}</strong>, my name is <strong>${
+      this.name
+    }</strong>, my gender is <strong>${this.gender}</strong>, I have <strong>${
+      this.legs
+    }</strong> legs and <strong>${this.hands}</strong> hands. 
+     My friends: <strong>${this.listFriends()}</strong> and my phrase: <strong>${this.sayPhrase()}</strong>`;
+  }
+}
+
+class Dog extends Habitant {
+  constructor(name, gender, phrase, friends, legs = 4, hands = 0) {
+    super("dog", name, gender, phrase, friends, legs, hands);
+  }
+  toString() {
+    return super.toString();
+  }
+  sayPhrase() {
+    return super.sayPhrase();
+  }
+  addFriends(newFriend) {
+    super.addFriends(newFriend);
+  }
+  listFriends() {
+    return super.listFriends();
+  }
+}
+class Cat extends Habitant {
+  constructor(name, gender, phrase, friends, legs = 4, hands = 0) {
+    super("cat", name, gender, phrase, friends, legs, hands);
+  }
+  toString() {
+    return super.toString();
+  }
+  sayPhrase() {
+    return super.sayPhrase();
+  }
+  addFriends(newFriend) {
+    super.addFriends(newFriend);
+  }
+  listFriends() {
+    return super.listFriends();
+  }
+}
+class Human extends Habitant {
+  constructor(name, gender, phrase, friends, legs = 2, hands = 2) {
+    super("human", name, gender, phrase, friends, legs, hands);
+  }
+  toString() {
+    return super.toString();
+  }
+  sayPhrase() {
+    return super.sayPhrase();
+  }
+  addFriends(newFriend) {
+    super.addFriends(newFriend);
+  }
+  listFriends() {
+    return super.listFriends();
+  }
+}
+const dog = new Dog("Snoop", "male", "Woof!", ["Ban", "July"]);
+const cat = new Cat("Fluffy", "female", "Meow!", ["July"]);
+const man = new Human("Ban", "male", "Hello everybody.");
+const woman = new Human("July", "female", "Blah blah blah.", [
+  "Ban",
+  "Fluffy",
+  "Snoop",
+]);
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -27,5 +121,7 @@
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-
-
+print(dog);
+print(cat);
+print(man);
+print(woman);
